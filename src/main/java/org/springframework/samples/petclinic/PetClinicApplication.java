@@ -16,6 +16,9 @@
 
 package org.springframework.samples.petclinic;
 
+import java.util.Calendar;
+
+import org.apache.tomcat.jni.Time;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -29,7 +32,33 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PetClinicApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PetClinicApplication.class, args);
+
+        for (int n = 2000; n > 1; n--) {
+            isPrimzahl(n);
+        }
+    }
+
+    private static void isPrimzahl(int z) {
+        int teiler = -1;
+        boolean isPrimzahl = true;
+        for (int n = z - 1; n > 1; n--) {
+            // System.out.println(z + " " + n);
+
+            if (z % n == 0) {
+                // System.out.println(z + " ist teilbar durch " + n);
+                teiler = n;
+                isPrimzahl = false;
+                break;
+            } else {
+                // System.out.println(z + " ist NICHT teilbar durch " + n);
+            }
+        }
+        if (isPrimzahl) {
+            System.out.println(z + " ist Primzahl");
+        } else {
+            System.out.println(z + " ist keine Primzahl, teiler ist " + teiler);
+        }
+
     }
 
 }
