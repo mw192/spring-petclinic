@@ -17,6 +17,7 @@
 package org.springframework.samples.petclinic;
 
 import java.util.Calendar;
+import java.util.Scanner;
 
 import org.apache.tomcat.jni.Time;
 import org.springframework.boot.SpringApplication;
@@ -25,38 +26,58 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * PetClinic Spring Boot Application.
  *
- * @author Dave Syer
+ * @author Lion Wurdel
  *
+ *         TODO: * Eingabe von Zahlen * Eingabe von - bis * Primzahlen in Liste
+ *         merken und dann ausgeben * Richtung des Zählens
  */
-@SpringBootApplication
+// @SpringBootApplication
 public class PetClinicApplication {
 
     public static void main(String[] args) {
 
-        for (int n = 2000; n > 1; n--) {
-            isPrimzahl(n);
-        }
+        Scanner sc = new Scanner(System.in); // System.in is a standard input stream
+        System.out.print("Enter first number- ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number- ");
+        int b = sc.nextInt();
+        System.out.print("Enter third number- ");
+        int c = sc.nextInt();
+        int d = a + b + c;
+        System.out.println("Total= " + d);
+
+        // int start = 10;
+        // int end = 2;
+
+        // for (int n = start; n > end; n--) {
+        //     isPrimzahl(n);
+        // }
     }
 
-    private static void isPrimzahl(int z) {
+    private static void isPrimzahl(int testZahl) {
         int teiler = -1;
         boolean isPrimzahl = true;
-        for (int n = z - 1; n > 1; n--) {
+
+        int durchZwei = testZahl / 2;
+        // System.err.println(testZahl + " "+ durchZwei);
+
+        // for (int n = testZahl - 1; n > 1; n--) {
+        for (int n = 2; n <= durchZwei; n++) {
             // System.out.println(z + " " + n);
 
-            if (z % n == 0) {
-                // System.out.println(z + " ist teilbar durch " + n);
+            if (testZahl % n == 0) {
+                // System.out.println(testZahl + " ist teilbar durch " + n);
                 teiler = n;
                 isPrimzahl = false;
                 break;
             } else {
-                // System.out.println(z + " ist NICHT teilbar durch " + n);
+                // System.out.println(testZahl + " ist NICHT teilbar durch " + n);
             }
         }
         if (isPrimzahl) {
-            System.out.println(z + " ist Primzahl");
+            System.out.println(testZahl + " ist Primzahl");
         } else {
-            System.out.println(z + " ist keine Primzahl, teiler ist " + teiler);
+            System.out.println(testZahl + " ist keine Primzahl, teiler ist " + teiler);
         }
 
     }
