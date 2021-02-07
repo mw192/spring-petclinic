@@ -30,6 +30,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  *         TODO: * Eingabe von Zahlen * Eingabe von - bis * Primzahlen in Liste
  *         merken und dann ausgeben * Richtung des Zählens
+ *
+ *         2 147 483 647
  */
 // @SpringBootApplication
 public class PetClinicApplication {
@@ -37,21 +39,17 @@ public class PetClinicApplication {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in); // System.in is a standard input stream
-        System.out.print("Enter first number- ");
-        int a = sc.nextInt();
-        System.out.print("Enter second number- ");
-        int b = sc.nextInt();
-        System.out.print("Enter third number- ");
-        int c = sc.nextInt();
-        int d = a + b + c;
-        System.out.println("Total= " + d);
+        System.out.print("Enter start number- ");
+        int start = sc.nextInt();
+        System.out.print("Enter end number- ");
+        int end = sc.nextInt();
 
         // int start = 10;
         // int end = 2;
 
-        // for (int n = start; n > end; n--) {
-        //     isPrimzahl(n);
-        // }
+        for (int n = start; n <= end; n++) {
+             isPrimzahl(n);
+        }
     }
 
     private static void isPrimzahl(int testZahl) {
@@ -77,7 +75,7 @@ public class PetClinicApplication {
         if (isPrimzahl) {
             System.out.println(testZahl + " ist Primzahl");
         } else {
-            System.out.println(testZahl + " ist keine Primzahl, teiler ist " + teiler);
+            //System.out.println(testZahl + " ist keine Primzahl, teiler ist " + teiler);
         }
 
     }
